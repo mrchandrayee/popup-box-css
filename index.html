@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#aab8d0">
+  <title>Popup Box | CSS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <nav class="tags"><span>#MZcode</span><span>#HTML</span><span>#CSS</span></nav>
+    <h1>Popup Box | <span>CSS</span></h1>
+
+    <section class="demo" aria-label="Popup box demo">
+      <button class="submit-btn" id="submitBtn">Submit</button>
+    </section>
+
+    <p class="channel">See full video on youtube channel: <strong>@mzcode01</strong></p>
+
+    <section class="code-window">
+      <div class="window-head"><i></i><i></i><i></i><b>CSS</b></div>
+      <pre><code>.submit-btn {
+  background-color: #1e272e;
+  color: #4bcffa;
+  border: none;
+  padding: 15px 30px;
+  font-size: 18px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 5px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  transition: box-shadow 0.3s ease-in-out,
+              transform 0.2s ease-in-out;
+}</code></pre>
+    </section>
+    <p class="source-note">Check description for source code!</p>
+  </main>
+
+  <div class="overlay" id="successOverlay" aria-hidden="true">
+    <section class="popup" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
+      <button class="close-btn" id="closeBtn" aria-label="Close popup">×</button>
+      <h2 id="popupTitle"><span class="check">✓</span> Submitted!</h2>
+      <p>Thank You! Your application has been successfully submitted.</p>
+      <div class="completion">Estimated Completion date: <strong>06-06-2025</strong></div>
+    </section>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

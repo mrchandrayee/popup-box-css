@@ -1,0 +1,203 @@
+* { box-sizing: border-box; }
+
+:root {
+  --page-bg: #aab8d0;
+  --dark: #1e272e;
+  --cyan: #4bcffa;
+  --white: #f4f7fb;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--page-bg);
+  color: #101820;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.page {
+  width: min(100% - 30px, 700px);
+  margin: 0 auto;
+  padding: 30px 0 34px;
+  text-align: center;
+}
+
+.tags {
+  display: flex;
+  justify-content: space-between;
+  max-width: 620px;
+  margin: 0 auto 38px;
+}
+
+.tags span {
+  padding: 4px 9px;
+  color: #314052;
+  background: #d4deec;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(25px, 4vw, 34px);
+  font-weight: 800;
+  letter-spacing: -.7px;
+}
+h1 span { color: #20a9dc; }
+
+.demo {
+  min-height: 270px;
+  display: grid;
+  place-items: center;
+}
+
+/* Transcribed from the CSS visible in the supplied video. */
+.submit-btn {
+  background-color: #1e272e;
+  color: #4bcffa;
+  border: none;
+  padding: 15px 30px;
+  font-size: 18px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 5px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  transition: box-shadow 0.3s ease-in-out,
+              transform 0.2s ease-in-out;
+}
+
+.submit-btn:hover {
+  box-shadow: 0 0 15px rgba(30, 39, 46, .65);
+  transform: translateY(-2px);
+}
+.submit-btn:active { transform: scale(.97); }
+.submit-btn:focus-visible { outline: 3px solid #178fbd; outline-offset: 4px; }
+
+.channel {
+  margin: 0 0 8px;
+  font-size: 11px;
+  color: #1d2835;
+}
+.channel strong { font-weight: 800; }
+
+.code-window {
+  width: min(100%, 620px);
+  margin: 0 auto;
+  padding: 0 18px 18px;
+  background: #171717;
+  color: #d9e1eb;
+  border-radius: 6px;
+  box-shadow: 0 5px 10px #0005;
+  text-align: left;
+}
+.window-head {
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: var(--cyan);
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.window-head i {
+  position: absolute;
+  left: 0;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #c4cbd4;
+}
+.window-head i:nth-child(2) { left: 14px; }
+.window-head i:nth-child(3) { left: 28px; }
+pre { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+code {
+  color: #d7dce4;
+  font: 12px/1.7 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+.source-note { margin: 8px 0 0; font-size: 10px; color: #263447; }
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(5, 10, 17, .30);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .25s ease, visibility .25s ease;
+}
+.overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+.popup {
+  width: min(100%, 340px);
+  position: relative;
+  padding: 22px 20px 18px;
+  background: #1e272e;
+  color: #f2f5f8;
+  border-radius: 7px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .48);
+  transform: translateY(12px) scale(.97);
+  transition: transform .25s ease;
+}
+.overlay.show .popup { transform: translateY(0) scale(1); }
+.close-btn {
+  position: absolute;
+  top: 5px;
+  right: 8px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #ff3f55;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+.popup h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  margin: 0 0 12px;
+  color: var(--cyan);
+  font-size: 20px;
+}
+.check {
+  display: inline-grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--cyan);
+  color: #fff;
+  font-size: 14px;
+}
+.popup p {
+  margin: 0 0 12px;
+  font-size: 13px;
+  line-height: 1.55;
+  color: #e0e5eb;
+}
+.completion {
+  font-size: 9px;
+  color: #d1d8e1;
+}
+.completion strong { color: var(--cyan); }
+
+@media (max-width: 520px) {
+  .page { padding-top: 22px; }
+  .tags { margin-bottom: 30px; }
+  .demo { min-height: 230px; }
+  .code-window { padding: 0 12px 14px; }
+  code { font-size: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: .01ms !important; }
+}
